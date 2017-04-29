@@ -3,16 +3,19 @@
 var loadDataCharacters = new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', './dataCharacters.json');
+    xhr.open('GET', 'https://raw.githubusercontent.com/lacera/tensor_test/master/src/dataCharacters.json');
     xhr.send();
 
     xhr.addEventListener('readystatechange', function () {
-        if (xhr.response.status === 200) {
+        if (xhr.status === 200) {
+            console.log(JSON.parse(xhr.response));
             resolve(xhr.response);
         } else {
+            console.log(xhr.status);
             reject(new Error('Ошибка получения данных по персонажам'));
         }
     });
+
 
 
 });

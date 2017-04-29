@@ -1,22 +1,22 @@
 [
   {
-    firstName: 'Фредди',
-    secondName: 'Крюгер'
+    'firstName': 'Фредди',
+    'secondName': 'Крюгер'
   },
   {
-    firstName: 'Джейсон',
-    secondName: 'Вурхиз'
+    'firstName': 'Джейсон',
+    'secondName': 'Вурхиз'
   },
   {
-    firstName: 'Майкл',
-    secondName: 'Майерс'
+    'firstName': 'Майкл',
+    'secondName': 'Майерс'
   },
   {
-    firstName: 'Джонни',
-    secondName: 'Депп'
+    'firstName': 'Джонни',
+    'secondName': 'Депп'
   },
   {
-    firstName: 'Киану',
-    secondName: 'Ривз'
+    'firstName': 'Киану',
+    'secondName': 'Ривз'
   }
 ]

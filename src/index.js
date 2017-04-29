@@ -8,7 +8,9 @@ var loadDataCharacters = new Promise(function (resolve, reject) {
 
     xhr.addEventListener('readystatechange', function () {
         if (xhr.status === 200) {
-            console.log(JSON.parse(xhr.response));
+            var obj = xhr.response;
+            console.log(obj);
+            console.log(typeof obj);
             resolve(xhr.response);
         } else {
             console.log(xhr.status);

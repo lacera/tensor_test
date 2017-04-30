@@ -18,5 +18,41 @@
   {
     "firstName": "Киану",
     "secondName": "Ривз"
+  },
+  {
+    "firstName": "Леонардо",
+    "secondName": "Ди Каприо"
+  },
+  {
+    "firstName": "Брэд",
+    "secondName": "Питт"
+  },
+  {
+    "firstName": "Анджелина",
+    "secondName": "Джоли"
+  },
+  {
+    "firstName": "Том",
+    "secondName": "Круз"
+  },
+  {
+    "firstName": "Арнольд",
+    "secondName": "Шварценеггер"
+  },
+  {
+    "firstName": "Уилл",
+    "secondName": "Смит"
+  },
+  {
+    "firstName": "Сильвестр",
+    "secondName": "Сталонне"
+  },
+  {
+    "firstName": "Брюс",
+    "secondName": "Уиллис"
+  },
+  {
+    "firstName": "Эмма",
+    "secondName": "Уотсон"
   }
 ]

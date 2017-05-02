@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    background-color: lightslategray;
+}
+
+#main-container {
+    height: 95vh;
+    padding: 100px;
+    overflow: hidden;
+}
+
+.main-div {
+    overflow: hidden;
+    position: absolute;
+    margin: 50px;
+    width: 200px;
+    height: 250px;
+}
+
+.main-ul {
+    margin: 0;
+    width: 220px;
+    list-style-type: none;
+    padding: 0;
+    background-color: aliceblue;
+}
+    .main-li {
+        padding: 0;
+    }
+    .main-ul__floating-header {
+        z-index: 100;
+        width: 200px;
+        line-height: 20px;
+        border-top: 2px solid #a6a6a6;
+        border-bottom: 2px solid #a6a6a6;
+        background-color: silver;
+        position: absolute;
+        opacity: 0.5;
+    }

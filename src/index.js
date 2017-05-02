@@ -1,31 +1,29 @@
-//var dataCharacters = require('');
+import {getDataCharacters} from './getDataCharacters';
+import {createCharactersList} from './createCharactersList';
+import {setFloatingHeader} from './setFloatingHeader';
 
-var loadDataCharacters = new Promise(function (resolve, reject) {
-    var xhr = new XMLHttpRequest();
+import $ from 'jquery';
 
-    xhr.open('GET', 'https://raw.githubusercontent.com/lacera/tensor_test/master/src/dataCharacters.json');
-    xhr.send();
+require('./css/main.ul.css');
+require('./css/enclosed.ul.css');
+require('./css/app.characters.list.css');
 
-    xhr.addEventListener('readystatechange', function () {
-        if (xhr.status === 200) {
-            var obj = xhr.response;
-            console.log(obj);
-            console.log(typeof obj);
-            resolve(xhr.response);
-        } else {
-            console.log(xhr.status);
-            reject(new Error('Ошибка получения данных по персонажам'));
-        }
-    });
+$(document).ready(function() {
+    var chrsListsInDOM = $('.app-characters-list');
+    chrsListsInDOM.each(function(index, element) {
+        getDataCharacters($(element).data('src'))
+            .catch(function(e) {
+                console.log(e);
+                // здесь вывод в DOM сообщения, что данные не получены
+                $(element).text('Данные не получены. Попробуйте еще раз');
+            })
+            .then(function(result) {
+                var groupingBy = 'firstName';
 
-
-
-});
-
-loadDataCharacters
-    .catch(function (e) {
-        console.log(e);
+                console.time('строительство списка');
+                $(element).append(createCharactersList(result, groupingBy));
+                setFloatingHeader();
+                console.timeEnd('строительство списка');
+            });
     })
-    .then(function (result) {
-        console.log(result);
-    });
+});

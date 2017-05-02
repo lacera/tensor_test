@@ -1,5 +1,5 @@
 {
-  "name": "loftschool-example",
+  "name": "tensor-test",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -25,6 +25,7 @@
     "handlebars": "^4.0.6",
     "handlebars-loader": "^1.4.0",
     "html-webpack-plugin": "^2.26.0",
+    "jquery": "^3.2.1",
     "style-loader": "^0.13.1",
     "webpack": "^2.2.0"
   },

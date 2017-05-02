@@ -1,8 +1,10 @@
 import $ from 'jquery';
 
-export function setFloatingHeader() {
-    var mainDiv = $('.main-div'),
-        mainUl = $('.main-ul'),
+export function setFloatingHeader(element) {
+    console.log($(element));
+    var mainDiv = $(element).children('.main-div'),
+        mainUl = mainDiv.children('.main-ul'),
+        enclosedLi = mainUl.find('.enclosed-ul__header'),
         nextHeader = null,
         bordersHeight = 4,
         startScroll = false,
@@ -43,16 +45,16 @@ export function setFloatingHeader() {
                 mainUl.offset({top: mainDiv.offset().top});
             }
 
-            $('.enclosed-ul__header').each(function(index, element) {
-                if ($(element).offset().top < mainDiv.offset().top) {
-                    $(element).addClass('enclosed-ul__header_floating');
-                    floatingHeader.text($(element).text());
+            enclosedLi.each(function(index, el) {
+                if ($(el).offset().top < mainDiv.offset().top) {
+                    $(el).addClass('enclosed-ul__header_floating');
+                    floatingHeader.text($(el).text());
                 } else {
-                    $(element).removeClass('enclosed-ul__header_floating');
+                    $(el).removeClass('enclosed-ul__header_floating');
                 }
             });
 
-            nextHeader = $('.enclosed-ul__header_floating:last').parent().next().children('.enclosed-ul__header');
+            nextHeader = mainUl.find('.enclosed-ul__header_floating:last').parent().next().children('.enclosed-ul__header');
             if (nextHeader.offset() && ((nextHeader.offset().top - nextHeader.height() - bordersHeight) <= mainDiv.offset().top)) {
                 floatingHeader.offset({top: (nextHeader.offset().top - nextHeader.height() - bordersHeight), left: floatingHeader.offset().left});
             } else {

@@ -7,12 +7,16 @@
         padding: 10px 0;
         border-bottom: 1px solid #a6a6a6;
     }
+    li :last-child {
+        border-bottom: none;
+    }
     .enclosed-ul__header {
         width: 200px;
         line-height: 20px;
         border-top: 2px solid #a6a6a6;
-        border-bottom: 2px solid #a6a6a6;
-        background-color: silver;
+        border-bottom: 2px solid #cfcfcf;
+        background: silver;
+        background: linear-gradient(to bottom, silver, #dfdfdf);
     }
         .enclosed-ul__header_floating {
             visibility: hidden;

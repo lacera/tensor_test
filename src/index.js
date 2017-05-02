@@ -11,18 +11,21 @@ require('./css/app.characters.list.css');
 $(document).ready(function() {
     var chrsListsInDOM = $('.app-characters-list');
     chrsListsInDOM.each(function(index, element) {
-        getDataCharacters($(element).data('src'))
+        var url = $(element).data('src');
+
+        getDataCharacters(url)
             .catch(function(e) {
                 console.log(e);
                 // здесь вывод в DOM сообщения, что данные не получены
-                $(element).text('Данные не получены. Попробуйте еще раз');
+                $(element).addClass('bad-data_style');
+                $(element).text('Данные для списка не получены. Проверьте, правильно ли указан путь к данным, и попробуйте еще раз');
             })
             .then(function(result) {
-                var groupingBy = 'firstName';
+                var groupingBy = $(element).data('grouping-template');
 
                 console.time('строительство списка');
                 $(element).append(createCharactersList(result, groupingBy));
-                setFloatingHeader();
+                setFloatingHeader(element);
                 console.timeEnd('строительство списка');
             });
     })

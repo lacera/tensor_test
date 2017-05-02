@@ -1,4 +1,6 @@
 body {
+    font-family: Arial;
+    font-size: 12px;
     margin: 0;
     background-color: lightslategray;
 }
@@ -12,9 +14,8 @@ body {
 .main-div {
     overflow: hidden;
     position: absolute;
-    margin: 50px;
-    width: 200px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
 }
 
 .main-ul {
@@ -32,8 +33,9 @@ body {
         width: 200px;
         line-height: 20px;
         border-top: 2px solid #a6a6a6;
-        border-bottom: 2px solid #a6a6a6;
-        background-color: silver;
+        border-bottom: 2px solid #cfcfcf;
+        background: silver;
+        background: linear-gradient(to bottom, silver, #dfdfdf);
         position: absolute;
         opacity: 0.5;
     }

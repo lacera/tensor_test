@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import {groupingMethod} from './groupingMethod';
+import {innerHTMLCharacter} from './innerHTMLCharacter';
 
 export function createCharactersList(data, groupingBy) {
     var charactersListArr = [];
@@ -49,12 +50,4 @@ export function createCharactersList(data, groupingBy) {
     console.log(charactersListArr);
 
     return mainDiv;
-}
-
-function innerHTMLCharacter(groupingBy, obj) {
-    if (groupingBy === 'secondName') {
-        return obj.firstName + ' ' + '<b>' + obj.secondName + '</b>';
-    }
-
-    return '<b>' + obj.firstName + '</b> ' +  obj.secondName;
 }

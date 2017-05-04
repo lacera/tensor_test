@@ -17,6 +17,9 @@
         border-bottom: 2px solid #cfcfcf;
         background: silver;
         background: linear-gradient(to bottom, silver, #dfdfdf);
+        font-weight: bold;
+        color: #fff;
+        text-shadow: 0 1px #000;
     }
         .enclosed-ul__header_floating {
             visibility: hidden;

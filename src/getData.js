@@ -1,4 +1,4 @@
-export function getDataCharacters(url) {
+export function getData(url) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
 

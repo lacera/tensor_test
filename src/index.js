@@ -1,6 +1,8 @@
-import {getDataCharacters} from './getDataCharacters';
-import {createCharactersList} from './createCharactersList';
+import {getData} from './getData';
+import {buildList} from './buildList';
 import {setFloatingHeader} from './setFloatingHeader';
+import {insertListToDOM} from './insertListToDOM';
+import {createBadListStub} from './createBadListStub';
 
 import $ from 'jquery';
 
@@ -9,24 +11,35 @@ require('./css/enclosed.ul.css');
 require('./css/app.characters.list.css');
 
 $(document).ready(function() {
-    var chrsListsInDOM = $('.app-characters-list');
-    chrsListsInDOM.each(function(index, element) {
-        var url = $(element).data('src');
+    var charactersListMainComponentsInDOM = $('.app-characters-list'),
+        appCharacterLists = [];
 
-        getDataCharacters(url)
+    charactersListMainComponentsInDOM.each(function(index, element) {
+        var url = $(element).data('src') || null;
+
+        getData(url)
             .catch(function(e) {
                 console.log(e);
-                // здесь вывод в DOM сообщения, что данные не получены
-                $(element).addClass('bad-data_style');
-                $(element).text('Данные для списка не получены. Проверьте, правильно ли указан путь к данным, и попробуйте еще раз');
+                createBadListStub(element);
             })
             .then(function(result) {
-                var groupingBy = $(element).data('grouping-template');
+                if (!(result instanceof Array)) return;
 
-                console.time('строительство списка');
-                $(element).append(createCharactersList(result, groupingBy));
-                setFloatingHeader(element);
-                console.timeEnd('строительство списка');
+                var groupingBy = $(element).data('grouping-template'),
+                    tempArr = buildList(result, groupingBy),
+                    thisAppChLst;
+
+                appCharacterLists.push({
+                    mainAppDiv: $(element),
+                    secondDiv: tempArr[0],
+                    mainUl: tempArr[1],
+                    list: tempArr[2]
+                });
+
+                thisAppChLst = appCharacterLists[appCharacterLists.length - 1];
+                insertListToDOM(thisAppChLst);
+                setFloatingHeader(thisAppChLst);
             });
-    })
+    });
+    console.log(appCharacterLists);
 });
